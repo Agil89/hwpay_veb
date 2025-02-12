@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+from decouple import config
 
 env = environ.Env()
 
@@ -27,9 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xa4)da=cui70*=fl9reoe1p1rlkec#-&i33==dks&r8=zi3n7('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hwpay.io']
+
+CSRF_TRUSTED_ORIGINS = ['https://hwpay.io']
 
 
 # Application definition
@@ -78,23 +81,17 @@ WSGI_APPLICATION = 'hwpay_veb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB'),
+        'USER': config('POSTGRES_USER'),
+        'PASSWORD': config('POSTGRES_PASSWORD'),
+        'HOST': config('DB_HOST', default='localhost'),  # Default: localhost
+        'PORT': config('DB_PORT', default='5432'),  # Default: 5432
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'db_paket',
-            'USER': 'user_paket',
-            'PASSWORD': '4124askldm34%%ad@4rmsj*jan_3413%$v%cu1*g',
-            'HOST': 'postgres',
-            'PORT': '5432',
-        }}
+}
 
 
 # Password validation
@@ -135,7 +132,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 if DEBUG:
     STATICFILES_DIRS = [

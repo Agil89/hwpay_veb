@@ -2,3 +2,5 @@ venv/
 media/
 static/admin
 app/\.env
+**.pyc
+app/staticfiles/
