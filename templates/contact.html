@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Awaiken">
+
+    <!-- Primary SEO meta tags -->
+    <meta name="description" content="HWPay - Secure and innovative solutions for managing payments, facilitating transactions, and ensuring seamless financial operations.">
+    <meta name="keywords" content="HWPay, payment solutions, secure transactions, financial technology, digital payments">
+    <meta name="author" content="HWPay Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph meta tags (for social media) -->
+    <meta property="og:title" content="HWPay - Revolutionizing Payment Solutions">
+    <meta property="og:description" content="Discover HWPay, your trusted partner for secure, fast, and seamless financial transactions. Empower your business with advanced payment solutions.">
+    <meta property="og:image" content="https://hwpay.io/images/cannabis1.jpeg">
+    <meta property="og:url" content="https://hwpay.io">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HWPay - Revolutionizing Payment Solutions">
+    <meta name="twitter:description" content="Discover HWPay, your trusted partner for secure, fast, and seamless financial transactions. Empower your business with advanced payment solutions.">
+    <meta name="twitter:image" content="https://hwpay.io/images/hwpay.jpg">
+    
+	<!-- Page Title -->
+    <title>HighWayPay</title>
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/hwpay-logo.svg' %}">
+	<!-- Google Fonts Css-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+	<!-- Bootstrap Css -->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="{% static 'css/slicknav.min.css' %}"  rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+	<!-- Font Awesome Icon Css-->
+	<link href="{% static 'css/all.css' %}" rel="stylesheet" media="screen">
+	<!-- Animated Css -->
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<!-- Mouse Cursor Css File -->
+	<link rel="stylesheet" href="{% static 'css/mousecursor.css' %}" >
+	<!-- Main Custom Css -->
+	<link href="{% static 'css/custom.css' %}"  rel="stylesheet" media="screen">
+
+    <style>
+        .fixed-button {
+    position: fixed;
+    top: 50px; /* Initially at the top */
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out; /* Smooth movement */
+}
+
+.scrolled {
+    top: auto;
+    bottom: 20px; /* Moves to bottom when scrolled */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="{% static 'images/hwpay.jpg' %}" alt=""></div>
+		</div>
+	</div>
+	
+	<header class="main-header" style="background-color: #114A43;">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<!-- Logo Start -->
+					<a class="navbar-brand" href="./">
+						<img style="width: 140px;" src="{% static 'images/no-fon-01.png' %}" alt="Logo">
+					</a>
+					<!-- Logo End -->
+
+					<!-- Main Menu Start -->
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                    <li class="nav-item"><a class="nav-link" href="#industries">Industries we serve</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#features">Key features</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="header-btn d-inline-flex fixed-button" id="registerButton">
+                            <a href="{% url 'contact-form' %}" class="btn-default btn-signup">Get Started</a>
+                        </div>
+					</div>
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3" data-cursor="-opaque">Contact Us</h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="./">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">contact</li>
+							</ol>
+						</nav>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-contact-us">
+        <div class="contact-us bg-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="contact-information">
+                            <div class="contact-info-item wow fadeInUp">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-phone.svg' %}" alt="">
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>contact</h3>
+                                    <p>+1 213 539 8820</p>
+                                    <p>+1 747 441 6336</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item wow fadeInUp" data-wow-delay="0.25s">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-email.svg' %}" alt="">
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>email</h3>
+                                    <p>info@hwpay.io</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-location.svg' %}" alt="">
+                                </div>
+                                <div class="contact-info-content">
+                                    <h3>address</h3>
+                                    <p>1800 S Brand blvd unit 213 Los Angeles, CA 91204</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-us-form">
+            <div class="container">
+                <div class="row section-row align-items-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">contact us</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Get in touch with our experts finance</h2>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-6 col-md-4">
+                        <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
+                            <a href="#" class="btn-default contact-btn">+1 213 539 8820</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="google-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.897883208405!2d-118.25750722445086!3d34.12336391397181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c12a89f7a269%3A0x983a691279a1045!2zMTgwMCBTIEJyYW5kIEJsdmQsIEdsZW5kYWxlLCBDQSA5MTIwNCwg0KHQqNCQ!5e0!3m2!1sru!2saz!4v1733245781926!5m2!1sru!2saz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer bg-section">
+        <div class="container">
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2024 All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </footer>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/validator.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script src="{% static 'js/parallaxie.js' %}"></script>
+    <script src="{% static 'js/gsap.min.js' %}"></script>
+    <script src="{% static 'js/magiccursor.js' %}"></script>
+    <script src="{% static 'js/SplitText.js' %}"></script>
+    <script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/function.js' %}"></script>
+</body>
+<script>
+    window.addEventListener("scroll", function () {
+        let button = document.getElementById("registerButton");
+        if (window.scrollY > 100) { // Adjust scroll threshold
+            button.classList.add("scrolled");
+        } else {
+            button.classList.remove("scrolled");
+        }
+    });
+</script>
+</html>

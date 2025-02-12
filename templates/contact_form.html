@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    {% load static %}
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>HighWayPay</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/hwpay-logo.svg' %}">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="{% static 'css/slicknav.min.css' %}"  rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <!-- Font Awesome Icon Css-->
+    <link href="{% static 'css/all.css' %}" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="{% static 'css/mousecursor.css' %}" >
+    <!-- Main Custom Css -->
+    <link href="{% static 'css/custom.css' %}"  rel="stylesheet" media="screen">
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+        </div>
+    </div>
+    
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="./">
+                        <img style="width: 60px;" src="{% static 'images/hwpay-logo.svg' %}" alt="Logo">
+                    </a>
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a>
+                                </li>                                
+                                <li class="nav-item"><a class="nav-link" href="#">About Us</a>
+                                </li>
+                            
+                                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>                             
+                            </ul>
+                        </div>
+                       
+                    </div>
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Page Header Start -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Register</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="./">home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">contact</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Contact Us Start -->
+    <div class="page-contact-us">
+       
+
+        <!-- Contact Us Form Start -->
+        <div class="contact-us-form">
+            <div class="container">
+                <form id="registrationForm" action="{% url 'contact-form' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="company_name">Company Name</label>
+                            <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Enter company name" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="job_title">Job Title</label>
+                            <input type="text" name="job_title" class="form-control" id="job_title" placeholder="Enter job title" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email address" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="website">Website</label>
+                            <input type="url" name="website" class="form-control" id="website" placeholder="Enter website URL" required>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="cannabis">Choose Business Type</label>
+                            <select name="business_type" class="form-control" id="cannabis" required>
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="cannabis">Retail</option>
+                                <option value="cannabis">Hospitality</option>
+                                <option value="cannabis">Health and Wellness</option>
+                                <option value="cannabis">Luxury Goods</option>
+                                <option value="cannabis">E-commerce/Services</option>
+                                <option value="cannabis">Restaurants</option>
+                                <option value="cannabis">Cannabis</option>
+                                <option value="no_cannabis">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6 mb-4">
+                            <label for="business_address">Business Address</label>
+                            <input type="text" name="business_address" class="form-control" id="business_address" placeholder="Address, State, ZIP Code" required>
+                        </div>
+                        
+                    </div>
+                    
+                    
+
+                    
+                   
+
+                    <button type="submit" class="btn-highlighted">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- Contact Us Form End -->
+    </div>
+    <!-- Page Contact Us End -->
+
+    <!-- Footer Start -->
+    <footer class="main-footer bg-section">
+        <div class="container">
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2024 All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </footer>
+    <!-- Footer End -->
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/validator.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script src="{% static 'js/parallaxie.js' %}"></script>
+    <script src="{% static 'js/gsap.min.js' %}"></script>
+    <script src="{% static 'js/magiccursor.js' %}"></script>
+    <script src="{% static 'js/SplitText.js' %}"></script>
+    <script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/function.js' %}"></script>
+</body>
+</html>
+

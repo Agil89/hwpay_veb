@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Awaiken">
+    <!-- Primary SEO meta tags -->
+    <meta name="description" content="HWPay - Secure and innovative solutions for managing payments, facilitating transactions, and ensuring seamless financial operations.">
+    <meta name="keywords" content="HWPay, payment solutions, secure transactions, financial technology, digital payments">
+    <meta name="author" content="HWPay Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph meta tags (for social media) -->
+    <meta property="og:title" content="HWPay - Revolutionizing Payment Solutions">
+    <meta property="og:description" content="Discover HWPay, your trusted partner for secure, fast, and seamless financial transactions. Empower your business with advanced payment solutions.">
+    <meta property="og:image" content="https://hwpay.io/images/og-cannabis1.jpeg">
+    <meta property="og:url" content="https://hwpay.io">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HWPay - Revolutionizing Payment Solutions">
+    <meta name="twitter:description" content="Discover HWPay, your trusted partner for secure, fast, and seamless financial transactions. Empower your business with advanced payment solutions.">
+    <meta name="twitter:image" content="https://hwpay.io/images/hwpay.jpg">
+
+	<!-- Page Title -->
+    <title>HighWayPay</title>
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/hwpay-logo.svg' %}">
+	<!-- Google Fonts Css-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+	<!-- Bootstrap Css -->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="{% static 'css/slicknav.min.css' %}"  rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+	<!-- Font Awesome Icon Css-->
+	<link href="{% static 'css/all.css' %}" rel="stylesheet" media="screen">
+	<!-- Animated Css -->
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<!-- Mouse Cursor Css File -->
+	<link rel="stylesheet" href="{% static 'css/mousecursor.css' %}" >
+	<!-- Main Custom Css -->
+	<link href="{% static 'css/custom.css' %}"  rel="stylesheet" media="screen">
+
+    <style>
+        .modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050; /* Ensure it's above other content */
+}
+
+.modal .modal-dialog {
+    max-width: 500px;
+    width: 100%;
+}
+
+.modal .modal-body {
+    padding: 20px;
+    text-align: center;
+    background-color: #d4edda; /* Green background for success */
+    color: #155724; /* Dark green text */
+}
+html {
+    scroll-behavior: smooth;
+}
+.fixed-button {
+    position: fixed;
+    top: 50px; /* Initially at the top */
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out; /* Smooth movement */
+}
+
+.scrolled {
+    top: auto;
+    bottom: 20px; /* Moves to bottom when scrolled */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="{% static 'images/hwpay.jpg' %}" alt=""></div>
+		</div>
+	</div>
+
+    {% if messages %}
+    <div class="modal" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+	<header class="main-header" style="background-color: #114A43;">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="./">
+						<img style="width: 140px;" src="{% static 'images/no-fon-01.png' %}" alt="Logo">
+					</a>
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="#industries">Industries we serve</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#features">Key features</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                            </ul>
+                            
+                            
+                        </div>
+                        <div class="header-btn d-inline-flex fixed-button" id="registerButton">
+                            <a href="{% url 'contact-form' %}" class="btn-default btn-signup">Get Started</a>
+                        </div>
+                        
+                        
+					</div>
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+    <div class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6 order-1">
+                    <div class="hero-content">
+                        <div class="section-title">
+                            <h1 class="text-anime-style-3" data-cursor="-opaque">“Simple Sales- Simply Crypto”</h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s"></p>
+                            <h1 class="text-anime-style-3" data-cursor="-opaque">Accepting Crypto from Your Customers
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-6 order-lg-3 order-2">
+                    
+                </div>
+                <div class="col-lg-6 col-md-6 order-lg-3 order-2">
+                    <div class="hero-counter-box">
+                        <div class="hero-counter-item">
+                            <img style="width: 100%; padding: 80px; border-radius: 10%;" src="{% static 'images/main-image.jpeg' %}" alt="Crypto Payment">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="our-scrolling-ticker">
+        <div class="scrolling-ticker-box">
+            <div class="scrolling-content">
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">Cryptocurrency Payment Processing</span>
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">Crypto-to-USD, USD-to-Crypto Exchange</span>
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">POS integration</span>
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">Website integration</span>
+            </div>
+
+            <div class="scrolling-content">
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">Cryptocurrency Payment Processing</span>
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">Crypto-to-USD, USD-to-Crypto Exchange</span>
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">POS integration</span>
+                <span><img src="{% static 'images/asterisk-icon.svg' %}" alt="">Website integration</span>
+            </div>
+        </div>
+    </div>
+	
+
+    <div class="our-faqs bg-section">
+        <div class="container">
+       
+
+            <div class="row section-row align-items-center">
+                <div class="col-lg-7">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp" style="font-size: 32px;">Why choose HighWayPay</h3>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Our FAQs Box Start -->
+                    <div class="our-faqs-box">
+                        <!-- FAQs Item Start -->
+                        <div class="faqs-item wow fadeInUp">
+                            <!-- FAQs Item Content Start -->
+                            <div class="faqs-item-content">
+                                <h3>Attract Crypto Customers</h3>
+                                <p>Expand your customer base by accepting crypto payments and appealing to tech-savvy and global users.</p>
+                            </div>
+                            <!-- FAQs Item Content End -->
+                        </div>
+                        <!-- FAQs Item End -->
+
+                        <!-- FAQs Item Start -->
+                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.2s">
+                            <!-- FAQs Item Content Start -->
+                            <div class="faqs-item-content">
+                                <h3>Higher Average Transaction Value</h3>
+                                <p>Crypto users tend to spend more per transaction, increasing your revenue potential.</p>
+                            </div>
+                            <!-- FAQs Item Content End -->
+                        </div>
+                        <!-- FAQs Item End -->
+
+                        <!-- FAQs Item Start -->
+                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.4s">
+                            <!-- FAQs Item Content Start -->
+                            <div class="faqs-item-content">
+                                <h3>Low Transaction Fees</h3>
+                                <p>Save on payment processing costs with significantly lower fees compared to traditional banking and credit card systems.</p>
+                            </div>
+                            <!-- FAQs Item Content End -->
+                        </div>
+                        <!-- FAQs Item End -->
+
+                        <!-- FAQs Item Start -->
+                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.6s">
+                            <!-- FAQs Item Content Start -->
+                            <div class="faqs-item-content">
+                                <h3>Instant, Borderless Payments</h3>
+                                <p>Receive payments instantly from anywhere in the world without the delays of traditional banking.</p>
+                            </div>
+                            <!-- FAQs Item Content End -->
+                        </div>
+                        <!-- FAQs Item End -->
+
+                        <!-- FAQs Item Start -->
+                        <div class="faqs-item wow fadeInUp" data-wow-delay="0.8s">
+                            <!-- FAQs Item Content Start -->
+                            <div class="faqs-item-content">
+                                <h3>High Security & Fraud Prevention</h3>
+                                <p>Blockchain technology ensures secure transactions with advanced encryption and fraud-resistant protocols.</p>
+                            </div>
+                            <!-- FAQs Item Content End -->
+                        </div>
+                        <!-- FAQs Item End -->
+
+                        <!-- FAQs Item Start -->
+                        <div class="faqs-item wow fadeInUp" data-wow-delay="1s">
+                            <!-- FAQs Item Content Start -->
+                            <div class="faqs-item-content">
+                                <h3>No Chargebacks</h3>
+                                <p>Eliminate chargeback risks, as crypto payments are irreversible and protect merchants from fraudulent disputes.</p>
+                            </div>
+                            <!-- FAQs Item Content End -->
+                        </div>
+                        <!-- FAQs Item End -->
+                    </div>
+                    <!-- Our FAQs Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="industries" class="why-choose-us" >
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-7">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp" style="font-size: 32px;">Industries we serve</h3>
+                        <!-- <h2 class="text-anime-style-3" data-cursor="-opaque">Expertise and client focused solutions for your success</h2> -->
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+               
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/retail.webp' %}" alt="">
+                            </figure>
+                        </div>
+                       
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>Retail</h3>
+                                <!-- <p>Our team comprises seasoned professionals with extensive.</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/hospitality.webp' %}" alt="">
+                            </figure>
+                        </div>
+                       
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>Hospitality</h3>
+                                <!-- <p>Improve cash flow through structured savings, budgeting techniques</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/health.webp' %}" alt="">
+                            </figure>
+                        </div>
+                       
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>Health and Wellness</h3>
+                                <!-- <p>Stay on track with your financial goals through regular check-ins</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/luxury.webp' %}" alt="">
+                            </figure>
+                        </div>
+                       
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>Luxury goods</h3>
+                                <!-- <p>Stay on track with your financial goals through regular check-ins</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/ecommerce.webp' %}" alt="">
+                            </figure>
+                        </div>
+                        
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>E-commerce/Services</h3>
+                                <!-- <p>Stay on track with your financial goals through regular check-ins</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/restaurant.webp' %}" alt="">
+                            </figure>
+                        </div>
+                     
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>Restaurants</h3>
+                                <!-- <p>Stay on track with your financial goals through regular check-ins</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Why Choose Item Start -->
+                    <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
+                        <!-- Why Choose Image Start -->
+                        <div class="why-choose-image">
+                            <figure>
+                                <img src="{% static 'images/cannabis.webp' %}" alt="">
+                            </figure>
+                        </div>
+                       
+                        <div class="why-choose-body">
+                            <!-- Why Choose Content Start -->
+                            <div class="why-choose-content">
+                                <h3>Cannabis</h3>
+                                <!-- <p>Stay on track with your financial goals through regular check-ins</p> -->
+                            </div>
+                            <!-- Why Choose Content End -->
+
+                            <div class="why-choose-btn">
+                                <a href="#" class="readmore-btn"><img src="{% static 'images/icon-arrow.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <!-- Why Choose Body End -->
+                    </div>
+                    <!-- Why Choose Item End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="our-process bg-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Our Process Content Start -->
+                    <div class="our-process-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp" style="font-size: 32px;">Getting Started is Simple</h3>
+                            <!-- <h2 class="text-anime-style-3" data-cursor="-opaque">Sign Up in Minutes</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">Create an account with basic details.</p> -->
+                        </div>
+                        <!-- Section Title End -->
+
+                        <div class="our-process-steps">
+                            <!-- Process Steps Item Start -->
+                            <div class="process-step-item wow fadeInUp">
+                                <div class="step-item-number">
+                                    <h2>01</h2>
+                                </div>
+                                <div class="step-item-content">
+                                    <h3>Sign Up in Minutes</h3>
+                                    <p>Create an account with basic details</p>
+                                </div>
+                            </div>
+                            <!-- Process Steps Item End -->
+                            
+                            <!-- Process Steps Item Start -->
+                            <div class="process-step-item wow fadeInUp" data-wow-delay="0.25s">
+                                <div class="step-item-number">
+                                    <h2>02</h2>
+                                </div>
+                                <div class="step-item-content">
+                                    <h3>Integrate Seamlessly</h3>
+                                    <p>Works with your existing POS, e-commerce, or invoicing system</p>
+                                </div>
+                            </div>
+                            <!-- Process Steps Item End -->
+    
+                            <!-- Process Steps Item Start -->
+                            <div class="process-step-item wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="step-item-number">
+                                    <h2>03</h2>
+                                </div>
+                                <div class="step-item-content">
+                                    <h3>Start Accepting Crypto</h3>
+                                    <p>Customers pay in stable coin USDT / USDC</p>
+                                </div>
+                            </div>
+
+                            <div class="process-step-item wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="step-item-number">
+                                    <h2>04</h2>
+                                </div>
+                                <div class="step-item-content">
+                                    <h3>Instant Settlements</h3>
+                                    <p>Receive payments instantly with ZERO CHARGEBACKS</p>
+                                </div>
+                            </div>
+                            <!-- Process Steps Item End -->
+                        </div>
+                    </div>
+                    <!-- Our Process Content End -->
+                </div>
+
+        
+            </div>
+        </div>
+    </div>
+
+       <!-- Page Service Single Start -->
+       <div id="features" class=" page-service-single">
+        <div class="container">
+            <div class="row">
+               
+
+                <div class="col-lg-12">
+                    <!-- Service Single Content Start -->
+                    <div class="service-single-content">
+                        <!-- Service Featured Image Start -->
+                       
+                        <!-- Service Featured Image End -->
+
+
+                        <!-- Service Accordian Start -->
+                        <div class="service-faqs">
+                            <!-- Section Title Start -->
+                            <div class="section-title">
+                                <h3 class="wow fadeInUp" style="font-size: 32px;">Key Solutions</h3>
+                            </div>
+                            <!-- Section Title End -->
+                            
+                            <!-- Wrapper for FAQ items -->
+                            <div class="our-faqs-box service-faqs-box" style="display: flex; flex-direction: column;">
+                                <div class="faqs-row" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                                    <!-- FAQs Item Start -->
+                                    <div class="faqs-item wow fadeInUp" style="width: 48%; margin-bottom: 20px;">
+                                        <div class="faqs-item-content">
+                                            <h3>Cryptocurrency Payment Processing</h3>
+                                        </div>
+                                    </div>
+                                    <!-- FAQs Item End -->
+                                    
+                                    <!-- FAQs Item Start -->
+                                    <div class="faqs-item wow fadeInUp" data-wow-delay="0.2s" style="width: 48%; margin-bottom: 20px;">
+                                        <div class="faqs-item-content">
+                                            <h3>Crypto-to-USD, USD-to-Crypto Exchange </h3>
+                                        </div>
+                                    </div>
+                                    <!-- FAQs Item End -->
+                                </div>
+                        
+                                <div class="faqs-row" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                                    <!-- FAQs Item Start -->
+                                    <div class="faqs-item wow fadeInUp" data-wow-delay="0.4s" style="width: 48%; margin-bottom: 20px;">
+                                        <div class="faqs-item-content">
+                                            <h3>POS integration</h3>
+                                        </div>
+                                    </div>
+                                    <!-- FAQs Item End -->
+                                    
+                                    <!-- FAQs Item Start -->
+                                    <div class="faqs-item wow fadeInUp" data-wow-delay="0.6s" style="width: 48%; margin-bottom: 20px;">
+                                        <div class="faqs-item-content">
+                                            <h3>Website integration</h3>
+                                        </div>
+                                    </div>
+                                    <!-- FAQs Item End -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Service Accordian End -->
+                    </div>
+                    <!-- Service Single Content End -->                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Service Single End -->
+
+    <div class="our-faqs bg-section" id="partners">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        
+                        <h2 class="text-anime-style-3"  data-cursor="-opaque">Our partners</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <!-- FAQs Client Slider Start -->
+                    <div class="faqs-client-slider">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Client Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="client-logo">
+                                        <figure>
+                                            <a href="https://amlbot.com/" target="_blank">
+                                            <img width="100%" src="{% static 'images/amlbot_logo.png' %}" alt="">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <!-- Client Slide End -->
+                                <div class="swiper-slide">
+                                    <div class="client-logo">
+                                        <figure>
+                                            <a href="https://k22n.io/" target="_blank">
+                                            <img src="{% static 'images/k22n_logo.png' %}"  alt="">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+    
+                                <!-- Client Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="client-logo">
+                                        <figure>
+                                            <a href="https://www.argosidentity.com/" target="_blank">
+                                            <img src="{% static 'images/argos_logo.png' %}" alt="">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <!-- Client Slide End -->
+    
+                                <!-- Client Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="client-logo">
+                                        <figure>
+                                            <a href="https://mercuryo.io/" target="_blank">
+                                                <img src="{% static 'images/mercuryo_logo.png' %}" alt="Mercuryo Logo">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <!-- Client Slide End -->
+    
+                                <!-- Client Slide Start -->
+                                <div class="swiper-slide">
+                                    <div class="client-logo">
+                                        <figure>
+                                            <a href="https://transak.com/" target="_blank">
+                                            <img  src="{% static 'images/transak1.jpeg' %}" alt="">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQs Client Slider End -->
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+    
+    <footer class="main-footer bg-section">
+        <div class="container">
+            <div class="footer-copyright">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2024 All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </footer>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/validator.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script src="{% static 'js/parallaxie.js' %}"></script>
+    <script src="{% static 'js/gsap.min.js' %}"></script>
+    <script src="{% static 'js/magiccursor.js' %}"></script>
+    <script src="{% static 'js/SplitText.js' %}"></script>
+    <script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/function.js' %}"></script>
+</body>
+<script>
+    {% if messages %}
+    window.onload = function() {
+        const modal = document.getElementById('messageModal');
+        modal.style.display = 'block'; // Show the modal
+
+        setTimeout(function() {
+            modal.style.display = 'none'; // Hide the modal after 1 second
+        }, 2000);
+    };
+    {% endif %}
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select all nav links with data-target attribute
+        document.querySelectorAll(".nav-link[data-target]").forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default anchor behavior
+    
+                // Hide all sections
+                document.querySelectorAll(".content-section").forEach(section => {
+                    section.style.display = "none";
+                });
+    
+                // Show the selected section
+                const targetSection = document.getElementById(this.getAttribute("data-target"));
+                if (targetSection) {
+                    targetSection.style.display = "block";
+                }
+            });
+        });
+    });
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll(".content-section");
+        const navLinks = document.querySelectorAll(".nav-link");
+    
+        // Function to highlight active link
+        function highlightNav() {
+            let scrollPosition = window.scrollY + 100; // Offset to activate earlier
+    
+            sections.forEach((section) => {
+                if (scrollPosition >= section.offsetTop && 
+                    scrollPosition < section.offsetTop + section.offsetHeight) {
+                    
+                    let activeId = section.getAttribute("id");
+                    navLinks.forEach((link) => {
+                        link.classList.remove("active"); // Remove active class
+                        if (link.getAttribute("href") === `#${activeId}`) {
+                            link.classList.add("active"); // Add active class
+                        }
+                    });
+                }
+            });
+        }
+    
+        // Add event listener for scroll event
+        window.addEventListener("scroll", highlightNav);
+    });
+    </script>
+    
+    <script>
+        window.addEventListener("scroll", function () {
+            let button = document.getElementById("registerButton");
+            if (window.scrollY > 100) { // Adjust scroll threshold
+                button.classList.add("scrolled");
+            } else {
+                button.classList.remove("scrolled");
+            }
+        });
+    </script>
+    
+
+</html>
