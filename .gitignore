@@ -1,6 +1,6 @@
-venv/
-media/
-static/admin
+app/venv/
+app/media/
+app/static/admin/
 app/\.env
 **.pyc
 app/staticfiles/
