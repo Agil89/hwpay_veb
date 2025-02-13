@@ -47,7 +47,7 @@ def contact_form(request):
         )
 
         # Add a success message
-        messages.success(request, 'Data saved successfully!')
+        messages.success(request, 'Success')
 
         # Redirect to the index page
         return redirect('index')

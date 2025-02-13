@@ -55,10 +55,10 @@
 
     <style>
         .modal {
-    display: none; /* Initially hidden */
+    display: block; /* Initially hidden */
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     z-index: 1050; /* Ensure it's above other content */
 }
@@ -79,16 +79,83 @@ html {
 }
 .fixed-button {
     position: fixed;
-    top: 50px; /* Initially at the top */
     right: 20px;
     z-index: 1000;
     transition: all 0.5s ease-in-out; /* Smooth movement */
 }
 
+/* When scrolled */
 .scrolled {
     top: auto;
     bottom: 20px; /* Moves to bottom when scrolled */
 }
+
+/* Mobile adjustments */
+.fixed-button {
+    max-width: 90vw; /* Ensures the button fits within the screen */
+}
+/* Desktop Button: Show only on screens >= 992px */
+
+
+
+
+
+
+
+/* Desktop Button: Visible only on large screens */
+.desktop-btn {
+    display: block;
+    position: fixed;
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 991px) {
+    .desktop-btn {
+        display: none; /* Hide on smaller screens */
+    }
+}
+
+/* Mobile Button: Always fixed at the bottom */
+/* Mobile Button: Always fixed at the bottom on small screens */
+.fixed-mobile-button {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px; /* Always at the bottom */
+    left: 80%;
+    transform: translateX(-50%); /* Adjust to be centered */
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+    max-width: 90vw;
+    white-space: nowrap;
+}
+
+/* Show mobile button only on screens smaller than 992px */
+@media screen and (max-width: 991px) {
+    .fixed-mobile-button {
+        display: block; /* Show only on small screens */
+    }
+}
+
+/* Hide mobile button on larger screens */
+@media screen and (min-width: 992px) {
+    .fixed-mobile-button {
+        display: none !important; /* Force hide on larger screens */
+    }
+}
+
+
+
+
+/* Adjust for iPhone Safe Area */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .fixed-mobile-button {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+
 
 
 
@@ -108,10 +175,10 @@ html {
     {% if messages %}
     <div class="modal" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 60%;">
                 <div class="modal-body">
                     {% for message in messages %}
-                        <p>{{ message }}</p>
+                        <p style="margin: 0;">{{ message }}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -138,15 +205,25 @@ html {
                             
                             
                         </div>
-                        <div class="header-btn d-inline-flex fixed-button" id="registerButton">
+                       <!-- Desktop Button (visible on screens 992px and above) -->
+                        <div class="header-btn d-inline-flex fixed-button desktop-btn" id="registerButton">
                             <a href="{% url 'contact-form' %}" class="btn-default btn-signup">Get Started</a>
                         </div>
+
+                        <!-- Mobile Button (visible on screens less than 992px) -->
+                        
+
                         
                         
 					</div>
+               
 					<div class="navbar-toggle"></div>
 				</div>
+                
 			</nav>
+            <div class="fixed-mobile-button d-inline-flex mobile-btn" id="mobileRegisterButton">
+                <a href="{% url 'contact-form' %}" class="btn-default btn-signup">Get Started</a>
+            </div>
 			<div class="responsive-menu"></div>
 		</div>
 	</header>
@@ -825,16 +902,28 @@ html {
     });
     </script>
     
-    <script>
-        window.addEventListener("scroll", function () {
-            let button = document.getElementById("registerButton");
-            if (window.scrollY > 100) { // Adjust scroll threshold
-                button.classList.add("scrolled");
-            } else {
-                button.classList.remove("scrolled");
-            }
-        });
-    </script>
+   <script>
+ document.addEventListener("DOMContentLoaded", function () {
+    let desktopButton = document.getElementById("registerButton");
+
+    function handleScroll() {
+        if (window.scrollY > 50) {
+            desktopButton?.classList.add("scrolled");
+        } else {
+            desktopButton?.classList.remove("scrolled");
+        }
+    }
+
+    // Ensure desktop button is always visible
+    desktopButton.style.display = "block";
+
+    // Listen for scroll events for desktop button
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("touchmove", handleScroll);
+});
+
+
+   </script>
     
 
 </html>
