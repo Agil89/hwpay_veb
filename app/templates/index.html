@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="zxx">
 {% load static %}
-<head>
-	<!-- Meta -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="Awaiken">
-    <!-- Primary SEO meta tags -->
-    <meta name="description" content="HWPay - Secure and innovative solutions for managing payments, facilitating transactions, and ensuring seamless financial operations.">
-    <meta name="keywords" content="HWPay, payment solutions, secure transactions, financial technology, digital payments">
-    <meta name="author" content="HWPay Team">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph meta tags (for social media) -->
-    <meta property="og:title" content="HWPay - Revolutionizing Payment Solutions">
-    <meta property="og:description" content="Discover HWPay, your trusted partner for secure, fast, and seamless financial transactions. Empower your business with advanced payment solutions.">
-    <meta property="og:image" content="https://hwpay.io/images/og-cannabis1.jpeg">
-    <meta property="og:url" content="https://hwpay.io">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <!-- SEO Optimization -->
+    <meta name="description" content="HighWayPay - The leading crypto payment gateway enabling seamless and secure cryptocurrency transactions for restaurants, luxury goods, cannabis, retail, hospitality, and eCommerce.">
+    <meta name="keywords" content="crypto payments, cryptocurrency transactions, blockchain payments, bitcoin payments, ethereum payments, crypto for restaurants, crypto for eCommerce, luxury goods payments, cannabis industry payments, retail crypto payments">
+    <meta name="author" content="Awaiken">
+
+    <!-- Open Graph Meta Tags (for social media previews) -->
+    <meta property="og:title" content="HighWayPay - Crypto Payment Gateway for Restaurants, Luxury Goods, and More">
+    <meta property="og:description" content="Accept crypto payments effortlessly across industries like restaurants, luxury goods, cannabis, retail, hospitality, and eCommerce. Fast, secure, and borderless transactions.">
+    <meta property="og:image" content="{% static 'images/hwpay-preview.jpg' %}">
+    <meta property="og:url" content="https://www.highwaypay.io">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card meta tags -->
+    <!-- Twitter Card (for better Twitter preview) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HWPay - Revolutionizing Payment Solutions">
-    <meta name="twitter:description" content="Discover HWPay, your trusted partner for secure, fast, and seamless financial transactions. Empower your business with advanced payment solutions.">
-    <meta name="twitter:image" content="https://hwpay.io/images/hwpay.jpg">
+    <meta name="twitter:title" content="HighWayPay - Accept Crypto Payments in Your Business">
+    <meta name="twitter:description" content="HighWayPay allows businesses in restaurants, retail, luxury goods, hospitality, cannabis, and eCommerce to accept cryptocurrency payments securely.">
+    <meta name="twitter:image" content="{% static 'images/hwpay-preview.jpg' %}">
+    <meta name="twitter:site" content="@HighWayPay">
 
-	<!-- Page Title -->
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://www.highwaypay.io">
+
+    <!-- Structured Data (Schema Markup for SEO) -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "HighWayPay",
+    "url": "https://www.highwaypay.io",
+    "logo": "https://hwpay.io/static/images/no-fon-01.png",
+    "description": "A leading crypto payment gateway enabling seamless cryptocurrency transactions for restaurants, luxury goods, cannabis, retail, hospitality, and eCommerce businesses.",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-213-539-8820",
+        "contactType": "customer service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English"]
+    },
+    "sameAs": [
+        "https://www.facebook.com/highwaypay",
+        "https://twitter.com/highwaypay",
+        "https://www.linkedin.com/company/highwaypay"
+    ]
+    }
+    </script>
+
     <title>HighWayPay</title>
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/hwpay-logo.svg' %}">
@@ -52,7 +77,6 @@
 	<link rel="stylesheet" href="{% static 'css/mousecursor.css' %}" >
 	<!-- Main Custom Css -->
 	<link href="{% static 'css/custom.css' %}"  rel="stylesheet" media="screen">
-
     <style>
         .modal {
     display: block; /* Initially hidden */
@@ -62,12 +86,10 @@
     transform: translate(-50%, -50%);
     z-index: 1050; /* Ensure it's above other content */
 }
-
 .modal .modal-dialog {
     max-width: 500px;
     width: 100%;
 }
-
 .modal .modal-body {
     padding: 20px;
     text-align: center;
@@ -83,26 +105,13 @@ html {
     z-index: 1000;
     transition: all 0.5s ease-in-out; /* Smooth movement */
 }
-
-/* When scrolled */
 .scrolled {
     top: auto;
     bottom: 20px; /* Moves to bottom when scrolled */
 }
-
-/* Mobile adjustments */
 .fixed-button {
     max-width: 90vw; /* Ensures the button fits within the screen */
 }
-/* Desktop Button: Show only on screens >= 992px */
-
-
-
-
-
-
-
-/* Desktop Button: Visible only on large screens */
 .desktop-btn {
     display: block;
     position: fixed;
@@ -116,9 +125,6 @@ html {
         display: none; /* Hide on smaller screens */
     }
 }
-
-/* Mobile Button: Always fixed at the bottom */
-/* Mobile Button: Always fixed at the bottom on small screens */
 .fixed-mobile-button {
     display: none; /* Hidden by default */
     position: fixed;
@@ -130,36 +136,21 @@ html {
     max-width: 90vw;
     white-space: nowrap;
 }
-
-/* Show mobile button only on screens smaller than 992px */
 @media screen and (max-width: 991px) {
     .fixed-mobile-button {
         display: block; /* Show only on small screens */
     }
 }
-
-/* Hide mobile button on larger screens */
 @media screen and (min-width: 992px) {
     .fixed-mobile-button {
         display: none !important; /* Force hide on larger screens */
     }
 }
-
-
-
-
-/* Adjust for iPhone Safe Area */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
     .fixed-mobile-button {
         padding-bottom: env(safe-area-inset-bottom);
     }
 }
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -387,7 +378,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/retail.webp' %}" alt="">
+                                <img src="{% static 'images/06-copy.png' %}" alt="">
                             </figure>
                         </div>
                        
@@ -414,7 +405,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/hospitality.webp' %}" alt="">
+                                <img src="{% static 'images/01-copy.png' %}" alt="">
                             </figure>
                         </div>
                        
@@ -441,7 +432,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/health.webp' %}" alt="">
+                                <img src="{% static 'images/05-copy.png' %}" alt="">
                             </figure>
                         </div>
                        
@@ -468,7 +459,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/luxury.webp' %}" alt="">
+                                <img src="{% static 'images/03-copy.png' %}" alt="">
                             </figure>
                         </div>
                        
@@ -495,7 +486,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/ecommerce.webp' %}" alt="">
+                                <img src="{% static 'images/04-copy.png' %}" alt="">
                             </figure>
                         </div>
                         
@@ -522,7 +513,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/restaurant.webp' %}" alt="">
+                                <img src="{% static 'images/02-copy.png' %}" alt="">
                             </figure>
                         </div>
                      
@@ -549,7 +540,7 @@ html {
                         <!-- Why Choose Image Start -->
                         <div class="why-choose-image">
                             <figure>
-                                <img src="{% static 'images/cannabis.webp' %}" alt="">
+                                <img src="{% static 'images/07-copy.png' %}" alt="">
                             </figure>
                         </div>
                        
